@@ -79,7 +79,7 @@ const Header = () => {
 
             {/* Desktop Menu */}
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: "20px" }}>
-              <Typography onClick={(e) => setAnchorMovie(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff" }}>
+              <Typography onClick={(e) => setAnchorMovie(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff", marginTop:'7px' }}>
                 Movies
               </Typography>
 
@@ -96,7 +96,7 @@ const Header = () => {
               <MenuItem onClick={() => navigate('/movies/hindi-movies')}>Hindi movies</MenuItem>
               <MenuItem onClick={() => navigate('/movies/english-movies')}>English movies</MenuItem>
               <MenuItem onClick={() => navigate('/all-cartoons')}>Cartoons</MenuItem>
-              <Typography onClick={(e) => setAnchorPeople(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff" }}>
+              <Typography onClick={(e) => setAnchorPeople(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff" , marginTop:'7px'}}>
                 Peoples
               </Typography>
               <Menu anchorEl={anchorPeople} open={Boolean(anchorPeople)} onClose={() => setAnchorPeople(null)}>
