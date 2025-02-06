@@ -134,9 +134,9 @@ const Header = () => {
         {loading ? (
           <Box display="flex" justifyContent="center" mt={2}><CircularProgress /></Box>
         ) : (
-          <Box sx={{ width: "98%", maxHeight: "300px", overflowY: "auto", backgroundColor: "whitesmoke", margin: "auto" }}>
+          <Box sx={{ width: "98%", maxHeight: "300px", overflowY: "auto", backgroundColor: "whitesmoke", margin: "auto" , color:'black'}}>
             {searchResults.map((result) => (
-              <MenuItem key={result.id} onClick={() => navigate(`/zxyxvyXdF/${result.id}`)}>
+              <MenuItem key={result.id} onClick={() => {navigate(`/zxyxvyXdF/${result.id}`);setSearchQuery(''); setShowSearch(false)}}>
                 {result.title || result.name}
               </MenuItem>
             ))}
