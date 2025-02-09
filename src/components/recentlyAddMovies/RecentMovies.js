@@ -129,7 +129,7 @@ const RecentMovies = () => {
                     left: "50%",
                     transform: "translate(-50%, -50%)",
                     width: isMobile ? "90%" : "60%",
-                    bgcolor: "black",
+                    bgcolor: "white",
                     boxShadow: 24,
                     p: 2,
                     height: isMobile ? "70%" : "80%",

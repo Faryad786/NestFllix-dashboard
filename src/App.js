@@ -29,6 +29,11 @@ import SeasonEpisodes from "./NavbarRouts/seasons/SeasonEpisodes";
 import EpisodePlayer from "./NavbarRouts/seasons/EpisodePlayer";
 import Fitness from "./NavbarRouts/fitness/Fitness";
 import Trailers from "./NavbarRouts/trailers/Trailers";
+import Songs from "./NavbarRouts/songs/Songs";
+import RecentlyMovie from "./NavbarRouts/recent/RecentlyMovie";
+import PakTvDrama from "./NavbarRouts/dramas/PakTvDrama";
+import DramaEpisodes from "./NavbarRouts/dramas/DramaEpisodes";
+import DramaPlayer from "./NavbarRouts/dramas/DramaPlayer";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -81,6 +86,13 @@ function App() {
 
           {/* fitness */}
           <Route path="/health-&-exercise-&-fitness" element={<Fitness/>}/>
+          {/* songs */}
+          <Route path="/all-hi-ur-en-pun-songs" element={<Songs/>}/>
+          {/* recently movies */}
+          <Route path="/all-recently-movies" element={<RecentlyMovie/>}/>
+          <Route path="/all-pak-tv-darama" element={<PakTvDrama/>}/>
+          <Route path="/drama/:name" element={<DramaEpisodes/>}/>
+          <Route path="/drama-pak-tv-episode-play" element={<DramaPlayer/>}/>
         </Routes>
        
       </Router>
