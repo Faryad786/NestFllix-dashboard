@@ -105,7 +105,7 @@ const Header = () => {
                   <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-cartoons'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
                   <ChildCareIcon sx={{ mr: 2, color: '#0fadbf' }} /> Cartoons
                   </ListItem>
-                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-cartoons'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
+                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-hi-ur-en-pun-songs'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
                    <LibraryMusicIcon sx={{color:'#0fadbf', mr:2}}/> Songs
                   </ListItem>
                 </List>
@@ -138,6 +138,7 @@ const Header = () => {
             </Box>
             {/* Desktop Menu */}
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: "20px" }}>
+            <MenuItem onClick={() => navigate('/all-recently-movies')}>Recently movies</MenuItem>
               <Typography onClick={(e) => setAnchorMovie(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff", marginTop: '7px' }}>
                 Movies
               </Typography>
@@ -154,7 +155,7 @@ const Header = () => {
               <MenuItem onClick={() => navigate('/movies-trailers-latest-trailers')}>Trailers</MenuItem>
               <MenuItem onClick={() => navigate('/all-seasons')}>Seasons</MenuItem>
               {/* <MenuItem onClick={() => navigate('/movies/hindi-movies')}>Drama</MenuItem> */}
-              {/* <MenuItem onClick={() => navigate('/movies/english-movies')}>PakTVFlix</MenuItem> */}
+              <MenuItem onClick={() => navigate('/all-pak-tv-darama')}>PakTVFlix</MenuItem>
               <MenuItem onClick={() => navigate('/health-&-exercise-&-fitness')}>Fitness</MenuItem>
               <Typography onClick={(e) => setAnchorPeople(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff", marginTop: '7px' }}>
                 Peoples
@@ -223,9 +224,9 @@ const Header = () => {
           <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-seasons'); setMobileOpen(false) }}>
             <CoronavirusIcon sx={{ mr: 2, color: '#0fadbf' }} /> Seasons
           </ListItem>
-          {/* <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }}>
+          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-pak-tv-darama'); setMobileOpen(false) }}>
             <LiveTvIcon sx={{ mr: 2, color: '#0fadbf' }} /> PakTVFlix
-          </ListItem> */}
+          </ListItem>
           
 
           <Menu anchorEl={anchorMovie} open={Boolean(anchorMovie)} onClose={() => setAnchorMovie(null)}>
@@ -244,7 +245,7 @@ const Header = () => {
           <ListItem button onClick={() => { navigate('/movies/hindi-movies'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} />Hindi movies</ListItem>
           <ListItem button onClick={() => { navigate('/movies/english-movies'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} />English movies</ListItem>
           <ListItem button onClick={() => { navigate('/all-cartoons'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><ChildCareIcon sx={{ mr: 2, color: '#0fadbf' }} />Cartoons</ListItem>
-          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }}>
+          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={()=> {navigate('/all-hi-ur-en-pun-songs');setMobileOpen(false)}}>
             <LibraryMusicIcon sx={{ mr: 2, color: '#0fadbf' }} /> Songs
           </ListItem>
           
