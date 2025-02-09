@@ -24,6 +24,11 @@ import Punjabi from "./NavbarRouts/MoviesCategories/punjabi/Punjabi";
 import English from "./NavbarRouts/MoviesCategories/english/English";
 import Hindi from "./NavbarRouts/MoviesCategories/hindi/Hindi";
 import Cartoons from "./NavbarRouts/cartoons/Cartoons";
+import AllSeasons from "./NavbarRouts/seasons/AllSeasons";
+import SeasonEpisodes from "./NavbarRouts/seasons/SeasonEpisodes";
+import EpisodePlayer from "./NavbarRouts/seasons/EpisodePlayer";
+import Fitness from "./NavbarRouts/fitness/Fitness";
+import Trailers from "./NavbarRouts/trailers/Trailers";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -47,6 +52,8 @@ function App() {
           <Route path="/movies/nowPlaying" element={<Trending />} />
           <Route path="/movies/topRated" element={<TopRated />} />
           <Route path="/movies/upComing" element={<Upcoming />} />
+          {/* trailers */}
+          <Route path="/movies-trailers-latest-trailers" element={<Trailers/>}/>
           {/* TvShows */}
           <Route path='/TvShow/trending' element={<TrendingTv />} />
           <Route path="/TvShow/topRated" element={<TopRatedTv />} />
@@ -66,6 +73,14 @@ function App() {
           <Route path="/movies/english-movies" element={<English/>}/>
           <Route path="/movies/hindi-movies" element={<Hindi/>}/>
           <Route path="/all-cartoons" element={<Cartoons/>}/>
+
+          {/* seasons */}
+          <Route path="/all-seasons" element={<AllSeasons/>}/>
+          <Route path="/season/:id" element={<SeasonEpisodes/>}/>
+          <Route path="/movie/season/episodes" element={<EpisodePlayer/>}/>
+
+          {/* fitness */}
+          <Route path="/health-&-exercise-&-fitness" element={<Fitness/>}/>
         </Routes>
        
       </Router>
