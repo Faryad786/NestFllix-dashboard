@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import OpenImage from '../movie.png';
 
 const LogoScreen = () => {
     const navigate = useNavigate();
@@ -34,17 +33,6 @@ const LogoScreen = () => {
             height="100vh"
             sx={{ backgroundColor: "black", color: "white" }}
         >
-            {/* Image Above the Text */}
-            <img 
-                src={OpenImage} 
-                alt="Movie Logo" 
-                style={{
-                    maxWidth: "150px",
-                    height: "auto",
-                    marginBottom: "10px"
-                }} 
-            />
-
             <Box sx={{ cursor: "pointer", display: "flex", alignItems: "center" }}>
                 {text.map((letter, index) => (
                     <motion.span
@@ -69,7 +57,7 @@ const LogoScreen = () => {
                 {/* Blinking Cursor Effect */}
                 <motion.div
                     initial={{ x: 0 }}
-                    animate={{ x: [0, 10, 0] }} 
+                    animate={{ x: [0, 10, 0] }}
                     transition={{ repeat: Infinity, duration: 0.6 }}
                     style={{
                         background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)",
@@ -84,7 +72,7 @@ const LogoScreen = () => {
             {/* Loading Line below "NestFllix" */}
             <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: "150px" }} 
+                animate={{ width: "150px" }}
                 transition={{ duration: 5, ease: "linear" }}
                 style={{
                     height: "5px",
