@@ -34,7 +34,7 @@ const DramaPlayer = () => {
                     <Box
                         sx={{
                             position: "sticky",
-                            top: "20px", // Adjust as needed
+                            top: "30px", // Adjust as needed
                             zIndex: 10,
 
                             paddingBottom: "10px", // Adds spacing below title
@@ -60,7 +60,7 @@ const DramaPlayer = () => {
                                     width: "100%",
                                     height: "100%",
                                     border: "1px solid #0fadbf",
-                                    borderRadius: "20px",
+                                    borderRadius: "5px",
                                     boxShadow: '0 4px 12px rgba(15, 173, 191, 0.5)',
                                 }}
                             ></iframe>

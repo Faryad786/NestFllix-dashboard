@@ -85,7 +85,7 @@ const Header = () => {
 
               {/* Drawer Menu */}
               <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <Box sx={{ cursor: "pointer", display: 'flex', padding: '15px', backgroundColor: '#032541' }} onClick={() => { navigate('/'); setMobileOpen(false) }}>
+                <Box sx={{ cursor: "pointer", display: 'flex', padding: '15px', backgroundColor: '#032541' }} onClick={() => { navigate('/movie-dashboard'); setMobileOpen(false) }}>
                   <Typography variant="h6" sx={{ fontWeight: "bold", background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginRight: '6px' }}>
                     NestFllix
                   </Typography>
@@ -112,7 +112,7 @@ const Header = () => {
               </Drawer>
 
               {/* Logo */}
-              <Box sx={{ cursor: "pointer", display: 'flex' }} onClick={() => navigate('/')}>
+              <Box sx={{ cursor: "pointer", display: 'flex' }} onClick={() => navigate('/movie-dashboard')}>
                 <Typography
                   variant="h6"
                   sx={{
@@ -207,7 +207,7 @@ const Header = () => {
 
       {/* Mobile Drawer */}
       <Drawer anchor="left" open={mobileOpen} onClose={handleDrawerToggle} >
-        <Box sx={{ cursor: "pointer", display: 'flex', padding: '15px', backgroundColor: '#032541' }} onClick={() => { navigate('/'); setMobileOpen(false) }}>
+        <Box sx={{ cursor: "pointer", display: 'flex', padding: '15px', backgroundColor: '#032541' }} onClick={() => { navigate('/movie-dashboard'); setMobileOpen(false) }}>
           <Typography variant="h6" sx={{ fontWeight: "bold", background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginRight: '6px' }}>
             NestFllix
           </Typography>
