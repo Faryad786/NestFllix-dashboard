@@ -59,7 +59,7 @@ const EpisodePlayer = () => {
                                     width: "100%",
                                     height: "100%",
                                     border: "1px solid #0fadbf",
-                                    borderRadius: "20px",
+                                    borderRadius: "5px",
                                     boxShadow: '0 4px 12px rgba(15, 173, 191, 0.5)',
                                 }}
                             ></iframe>
