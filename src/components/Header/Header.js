@@ -15,7 +15,6 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import CoronavirusIcon from '@mui/icons-material/Coronavirus';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-// import TranslasteComponent from "../TranslasteComponent";
 
 const SearchContainer = styled("div")(() => ({
   display: "flex",
