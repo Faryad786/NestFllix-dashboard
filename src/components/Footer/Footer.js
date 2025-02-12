@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Link } from '@mui/material';
+import TranslasteComponent from '../TranslasteComponent';
 
 const Footer = () => {
     return (
@@ -31,7 +32,7 @@ const Footer = () => {
                             </Typography>
                             <Box sx={{ background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)", width: '60px', height: '20px', borderRadius: '20px', marginTop:'6px' }}></Box>
                         </Box>
-                        <Box sx={{ marginTop: '6px', textAlign: 'center' }}>
+                        {/* <Box sx={{ marginTop: '6px', textAlign: 'center' }}>
                             <Typography
                                 variant="h4"
                                 component="div"
@@ -44,16 +45,14 @@ const Footer = () => {
                             >
                                 For Movies<br /> Production
                             </Typography>
-                        </Box>
+                        </Box> */}
                     </Box>
 
 
 
                     {/* Links Section */}
                     <Box>
-                        <Link href="#" color="inherit" sx={{ marginRight: '20px' }}>
-                            About
-                        </Link>
+                        {/* <TranslasteComponent/> */}
                         
                     </Box>
                 </Box>

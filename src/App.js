@@ -4,7 +4,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import { lightTheme, darkTheme } from "../src/theme";
 import TrendingMovies from "./components/TrendingMovies/TrendingMovies";
-
+import Footer from './components/Footer/Footer';
 import MovieDetails from "./components/moviedetails/MovieDetails";
 import Trending from "./NavbarRouts/Movies/trending/Trending";
 import TopRated from "./NavbarRouts/Movies/Toprated/TopRated";
@@ -102,6 +102,7 @@ function App() {
         <Route path="/drama/:name" element={<DramaEpisodes />} />
         <Route path="/drama-pak-tv-episode-play" element={<DramaPlayer />} />
       </Routes>
+      {location.pathname !== "/" && <Footer isDarkMode={isDarkMode} toggleTheme={toggleTheme} />}
     </ThemeProvider>
   );
 }

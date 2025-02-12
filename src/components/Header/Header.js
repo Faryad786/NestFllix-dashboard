@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  AppBar, Toolbar, Typography, IconButton, InputBase, Box, Menu, MenuItem, CssBaseline, Container, CircularProgress, Drawer, List, ListItem, ListItemText
+  AppBar, Toolbar, Typography, IconButton, InputBase, Box, Menu, MenuItem, CssBaseline, Container, CircularProgress, Drawer, List, ListItem, Select
 } from "@mui/material";
 import { Search, Close, WbSunny, Brightness4, Menu as MenuIcon } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
@@ -15,6 +15,8 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import CoronavirusIcon from '@mui/icons-material/Coronavirus';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import TranslasteComponent from "../TranslasteComponent";
+
 const SearchContainer = styled("div")(() => ({
   display: "flex",
   alignItems: "center",
@@ -35,9 +37,64 @@ const Header = () => {
   const [anchorPeople, setAnchorPeople] = useState(null);
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   useEffect(() => {
     document.body.style.backgroundColor = isDarkMode ? "#121212" : "#fff";
   }, [isDarkMode]);
+
+
+  // const countryOptions = [
+  //   { value: "en", label: "🇺🇸 English" },
+  //   { value: "fr", label: "🇫🇷 French" },
+  //   { value: "de", label: "🇩🇪 German" },
+  //   { value: "es", label: "🇪🇸 Spanish" },
+  //   { value: "zh", label: "🇨🇳 Chinese" },
+  //   { value: "ar", label: "🇸🇦 Arabic" },
+  //   { value: "hi", label: "🇮🇳 Hindi" },
+  //   { value: "ru", label: "🇷🇺 Russian" },
+  //   { value: "ja", label: "🇯🇵 Japanese" },
+  //   { value: "pt", label: "🇵🇹 Portuguese" },
+  //   { value: "it", label: "🇮🇹 Italian" },
+  //   { value: "ko", label: "🇰🇷 Korean" },
+  //   { value: "nl", label: "🇳🇱 Dutch" },
+  //   { value: "tr", label: "🇹🇷 Turkish" },
+  //   { value: "sv", label: "🇸🇪 Swedish" },
+  //   { value: "pl", label: "🇵🇱 Polish" },
+  //   { value: "uk", label: "🇺🇦 Ukrainian" },
+  //   { value: "th", label: "🇹🇭 Thai" },
+  //   { value: "id", label: "🇮🇩 Indonesian" },
+  //   { value: "vi", label: "🇻🇳 Vietnamese" },
+  //   { value: "fi", label: "🇫🇮 Finnish" },
+  //   { value: "el", label: "🇬🇷 Greek" },
+  //   { value: "he", label: "🇮🇱 Hebrew" },
+  //   { value: "hu", label: "🇭🇺 Hungarian" },
+  //   { value: "cs", label: "🇨🇿 Czech" },
+  //   { value: "da", label: "🇩🇰 Danish" },
+  //   { value: "no", label: "🇳🇴 Norwegian" },
+  //   { value: "ro", label: "🇷🇴 Romanian" },
+  //   { value: "bg", label: "🇧🇬 Bulgarian" },
+  //   { value: "ms", label: "🇲🇾 Malay" },
+  //   { value: "fa", label: "🇮🇷 Persian" },
+  //   { value: "ta", label: "🇱🇰 Tamil" },
+  //   { value: "ur", label: "🇵🇰 Urdu" },
+  //   { value: "bn", label: "🇧🇩 Bengali" },
+  //   { value: "sk", label: "🇸🇰 Slovak" },
+  //   { value: "sr", label: "🇷🇸 Serbian" },
+  //   { value: "hr", label: "🇭🇷 Croatian" },
+  //   { value: "lt", label: "🇱🇹 Lithuanian" },
+  //   { value: "lv", label: "🇱🇻 Latvian" },
+  //   { value: "et", label: "🇪🇪 Estonian" },
+  //   { value: "sl", label: "🇸🇮 Slovenian" },
+  //   { value: "is", label: "🇮🇸 Icelandic" },
+  //   { value: "mt", label: "🇲🇹 Maltese" },
+  //   { value: "ga", label: "🇮🇪 Irish" },
+  //   { value: "cy", label: "🏴 Welsh" },
+  //   { value: "eu", label: "🇪🇸 Basque" },
+  //   { value: "gl", label: "🇪🇸 Galician" },
+  //   { value: "af", label: "🇿🇦 Afrikaans" },
+  //   { value: "sw", label: "🇰🇪 Swahili" },
+  // ];
+
 
   useEffect(() => {
     if (searchQuery.length > 2) {
@@ -67,7 +124,7 @@ const Header = () => {
     <>
       <CssBaseline />
       <AppBar position="sticky" sx={{ backgroundColor: isDarkMode ? "black" : "#032541" }}>
-        <Container>
+        <>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
             {/* Mobile Menu Button */}
             <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ display: { xs: "block", md: "none" } }}>
@@ -93,20 +150,23 @@ const Header = () => {
 
                 </Box>
                 <List>
-                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/movies/punjabi-movies'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
-                  <LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} /> Punjabi movies
+                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/movies/punjabi-movies'); }} sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                    <LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} /> Punjabi movies
                   </ListItem>
-                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/movies/hindi-movies'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
-                  <LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} /> Hindi movies
+                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/movies/hindi-movies'); }} sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                    <LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} /> Hindi movies
                   </ListItem>
-                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/movies/english-movies'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
-                  <LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} /> English movies
+                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/movies/english-movies'); }} sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                    <LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} /> English movies
                   </ListItem>
-                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-cartoons'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
-                  <ChildCareIcon sx={{ mr: 2, color: '#0fadbf' }} /> Cartoons
+                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-cartoons'); }} sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                    <ChildCareIcon sx={{ mr: 2, color: '#0fadbf' }} /> Cartoons
                   </ListItem>
-                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-hi-ur-en-pun-songs'); }} sx={{cursor:'pointer', fontWeight:'bold'}}>
-                   <LibraryMusicIcon sx={{color:'#0fadbf', mr:2}}/> Songs
+                  <ListItem button onClick={() => { setDrawerOpen(false); navigate('/all-hi-ur-en-pun-songs'); }} sx={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                    <LibraryMusicIcon sx={{ color: '#0fadbf', mr: 2 }} /> Songs
+                  </ListItem>
+                  <ListItem sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/health-&-exercise-&-fitness'); setMobileOpen(false) }}>
+                    <MonitorHeartIcon sx={{ mr: 2, color: '#0fadbf' }} /> Fitness
                   </ListItem>
                 </List>
               </Drawer>
@@ -138,7 +198,7 @@ const Header = () => {
             </Box>
             {/* Desktop Menu */}
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: "20px" }}>
-            <MenuItem onClick={() => navigate('/all-recently-movies')}>Recently movies</MenuItem>
+              <MenuItem onClick={() => navigate('/all-recently-movies')}>Recently movies</MenuItem>
               <Typography onClick={(e) => setAnchorMovie(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff", marginTop: '7px' }}>
                 Movies
               </Typography>
@@ -156,13 +216,45 @@ const Header = () => {
               <MenuItem onClick={() => navigate('/all-seasons')}>Seasons</MenuItem>
               {/* <MenuItem onClick={() => navigate('/movies/hindi-movies')}>Drama</MenuItem> */}
               <MenuItem onClick={() => navigate('/all-pak-tv-darama')}>PakTVFlix</MenuItem>
-              <MenuItem onClick={() => navigate('/health-&-exercise-&-fitness')}>Fitness</MenuItem>
+              {/* <MenuItem onClick={() => navigate('/health-&-exercise-&-fitness')}>Fitness</MenuItem> */}
               <Typography onClick={(e) => setAnchorPeople(e.currentTarget)} sx={{ cursor: "pointer", color: "#fff", marginTop: '7px' }}>
                 Peoples
               </Typography>
               <Menu anchorEl={anchorPeople} open={Boolean(anchorPeople)} onClose={() => setAnchorPeople(null)}>
                 <MenuItem onClick={() => { setAnchorPeople(null); navigate('/people/popularPeople') }} sx={{ color: '#0fadbf' }}>Popular People</MenuItem>
               </Menu>
+
+              <TranslasteComponent/>
+              {/* <Select
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value)}
+                size="small"
+                className="bg-white rounded"
+                sx={{
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#0fadbf",
+                  },
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#0fadbf",
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#0fadbf",
+                  },
+                  "& .MuiSelect-icon": {
+                    color: "#0fadbf",
+                  },
+                  "& .MuiSelect-select": {
+                    color: "#0fadbf",
+                  },
+                }}
+              >
+                {countryOptions.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select> */}
+
             </Box>
 
             {/* Right Icons */}
@@ -174,8 +266,10 @@ const Header = () => {
                 {isDarkMode ? <WbSunny /> : <Brightness4 />}
               </IconButton>
             </Box>
+
+
           </Toolbar>
-        </Container>
+        </>
 
         {/* Search Bar */}
         {showSearch && (
@@ -212,22 +306,22 @@ const Header = () => {
             NestFllix
           </Typography>
           <Box sx={{ background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)", width: '40px', height: '16px', borderRadius: '20px', marginTop: '8px' }}></Box>
-
+          {/* <TranslasteComponent /> */}
         </Box>
         <List>
           <ListItem onClick={(e) => { setAnchorMovie(e.currentTarget) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}>
             <MovieFilterIcon sx={{ mr: 2, color: '#0fadbf' }} /> Movies
           </ListItem>
-          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/movies-trailers-latest-trailers'); setMobileOpen(false) }}>
+          <ListItem sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/movies-trailers-latest-trailers'); setMobileOpen(false) }}>
             <VideoLibraryIcon sx={{ mr: 2, color: '#0fadbf' }} /> Trailers
           </ListItem>
-          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-seasons'); setMobileOpen(false) }}>
+          <ListItem sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-seasons'); setMobileOpen(false) }}>
             <CoronavirusIcon sx={{ mr: 2, color: '#0fadbf' }} /> Seasons
           </ListItem>
-          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-pak-tv-darama'); setMobileOpen(false) }}>
+          <ListItem sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-pak-tv-darama'); setMobileOpen(false) }}>
             <LiveTvIcon sx={{ mr: 2, color: '#0fadbf' }} /> PakTVFlix
           </ListItem>
-          
+
 
           <Menu anchorEl={anchorMovie} open={Boolean(anchorMovie)} onClose={() => setAnchorMovie(null)}>
             <MenuItem onClick={() => { setAnchorMovie(null); navigate('/movies/PopularMovies'); setMobileOpen(false) }} sx={{ color: '#0fadbf' }}>
@@ -238,24 +332,27 @@ const Header = () => {
             <MenuItem onClick={() => { setAnchorMovie(null); navigate('/movies/topRated'); setMobileOpen(false) }} sx={{ color: '#0fadbf' }}>Top Rated</MenuItem>
             <MenuItem onClick={() => { setAnchorMovie(null); navigate('/movies/upComing'); setMobileOpen(false) }} sx={{ color: '#0fadbf' }}>Upcoming</MenuItem>
           </Menu>
-          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={()=> {navigate('/health-&-exercise-&-fitness');setMobileOpen(false) }}>
+          <ListItem sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/health-&-exercise-&-fitness'); setMobileOpen(false) }}>
             <MonitorHeartIcon sx={{ mr: 2, color: '#0fadbf' }} /> Fitness
           </ListItem>
           <ListItem button onClick={() => { navigate('/movies/punjabi-movies'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} />Punjabi movies</ListItem>
           <ListItem button onClick={() => { navigate('/movies/hindi-movies'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} />Hindi movies</ListItem>
           <ListItem button onClick={() => { navigate('/movies/english-movies'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><LanguageIcon sx={{ mr: 2, color: '#0fadbf' }} />English movies</ListItem>
           <ListItem button onClick={() => { navigate('/all-cartoons'); setMobileOpen(false) }} sx={{ cursor: "pointer", fontWeight: 'bold' }}><ChildCareIcon sx={{ mr: 2, color: '#0fadbf' }} />Cartoons</ListItem>
-          <ListItem  sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={()=> {navigate('/all-hi-ur-en-pun-songs');setMobileOpen(false)}}>
+          <ListItem sx={{ cursor: "pointer", fontWeight: 'bold' }} onClick={() => { navigate('/all-hi-ur-en-pun-songs'); setMobileOpen(false) }}>
             <LibraryMusicIcon sx={{ mr: 2, color: '#0fadbf' }} /> Songs
           </ListItem>
-          
+
           <ListItem onClick={(e) => setAnchorPeople(e.currentTarget)} sx={{ cursor: "pointer", fontWeight: 'bold' }}>
             <PeopleIcon sx={{ mr: 2, color: '#0fadbf' }} />Peoples
           </ListItem>
           <Menu anchorEl={anchorPeople} open={Boolean(anchorPeople)} onClose={() => setAnchorPeople(null)}>
             <MenuItem onClick={() => { setAnchorPeople(null); navigate('/people/popularPeople'); setMobileOpen(false) }} sx={{ color: '#0fadbf' }}>Popular People</MenuItem>
           </Menu>
+
         </List>
+         
+
       </Drawer>
     </>
   );

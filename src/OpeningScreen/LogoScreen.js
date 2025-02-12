@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
+import MovieImg from '../movie.png';
 
 const LogoScreen = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const LogoScreen = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate("/movie-dashboard");
-        }, 5000);
+        }, 8000);
 
         return () => clearTimeout(timer);
     }, [navigate]);
@@ -19,7 +20,7 @@ const LogoScreen = () => {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 0.2, 
+                staggerChildren: 0.2,
             },
         },
     };
@@ -30,7 +31,7 @@ const LogoScreen = () => {
             opacity: 1,
             y: 0,
             transition: {
-                delay: index * 0.1, 
+                delay: index * 0.1,
                 duration: 0.5,
                 ease: "easeOut",
             },
@@ -44,8 +45,23 @@ const LogoScreen = () => {
             justifyContent="center"
             alignItems="center"
             height="100vh"
-            sx={{ backgroundColor: "black", color: "white" }}
+            sx={{ backgroundColor: "#2E073F", color: "white" }}
         >
+            {/* Movie Image at the Top */}
+            <motion.img
+                src={MovieImg}
+                alt="Movie"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                style={{
+                    width: "120px",
+                    height: "120px",
+                    marginBottom: "20px",
+                }}
+            />
+
+            {/* Animated Text */}
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -54,31 +70,35 @@ const LogoScreen = () => {
             >
                 {text.map((letter, index) => (
                     <motion.span
-                        key={index}
-                        custom={index}
-                        variants={letterVariants}
-                        initial="hidden"
-                        animate="visible"
-                        style={{
-                            fontSize: "4rem",
-                            fontWeight: "bold",
-                            marginRight: "3px",
-                            color: "#950101",
-                        }}
-                    >
-                        {letter}
-                    </motion.span>
+                    key={index}
+                    custom={index}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    style={{
+                        fontSize: "4rem",
+                        fontWeight: "bold",
+                        marginRight: "3px",
+                        background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        display: "inline-block",
+                    }}
+                >
+                    {letter}
+                </motion.span>
+                
                 ))}
             </motion.div>
 
-            {/* Loading Line below "NestFllix" */}
+            {/* Loading Line with Gradient Effect */}
             <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: "150px" }}
-                transition={{ duration: 5, ease: "linear" }}
+                transition={{ duration: 8, ease: "linear" }}
                 style={{
                     height: "5px",
-                    background: "#950101",
+                    background: "linear-gradient(to right, #0fadbf 20%, yellow 80%)",
                     marginTop: "10px",
                     alignSelf: "center",
                     borderRadius: "2px",

@@ -120,7 +120,7 @@ const Fitness = () => {
                 >
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
                         <Typography variant="h6" fontWeight="bold" sx={{ color: "#0fadbf" }}>
-                            {selectedItem?.title}
+                           Health & Fitness
                         </Typography>
                         <IconButton onClick={handleCloseModal}>
                             <CloseIcon />
