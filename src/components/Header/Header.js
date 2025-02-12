@@ -15,7 +15,7 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import CoronavirusIcon from '@mui/icons-material/Coronavirus';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import TranslasteComponent from "../TranslasteComponent";
+// import TranslasteComponent from "../TranslasteComponent";
 
 const SearchContainer = styled("div")(() => ({
   display: "flex",
@@ -224,7 +224,7 @@ const Header = () => {
                 <MenuItem onClick={() => { setAnchorPeople(null); navigate('/people/popularPeople') }} sx={{ color: '#0fadbf' }}>Popular People</MenuItem>
               </Menu>
 
-              <TranslasteComponent/>
+              {/* <TranslasteComponent/> */}
               {/* <Select
                 value={selectedLanguage}
                 onChange={(e) => setSelectedLanguage(e.target.value)}
